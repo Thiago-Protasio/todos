@@ -5,7 +5,7 @@ Essa é uma aplicação serverless que contém duas funções:
 
 
 - [Criar um to-do](#criar-um-to-do)
-- [Listar to-dos de um usuário](#listar-to-dos)
+- [Listar to-dos de um usuário](#listar-to-dos-de-um-usuário)
 
 ### Criar um to-do
 
@@ -23,7 +23,7 @@ Para criar um *to-do*, a aplicação deve receber os seguintes valores:
 O `id` do usuário deve ser recebido na **rota** (path) da requisição.  
 
 
-```
+```https
   POST /todos/{user_id}
 ```
 
@@ -40,7 +40,7 @@ Já o `title` e o `deadline` deverão ser recebidos no **corpo** da requisição
 
 Retorna um objeto com as informações:
 
-```
+```typescript
   {
 	  id: "uuid", // id gerado para garantir um único to-do com o mesmo id
 	  user_id: "uuid", // id do usuário
@@ -54,7 +54,7 @@ Retorna um objeto com as informações:
 
 Para listar todos os to-dos de um usuário a aplicação deve receber o `id` do usuário na **rota** (path) da requisição.
 
-```
+```https
   GET /todos/{user_id}
 ```
 
@@ -62,19 +62,19 @@ Para listar todos os to-dos de um usuário a aplicação deve receber o `id` do 
 
 Retorna um `Array` de objetos. Como o exemplo a seguir:
 
-```
+```typescript
   [
     {
         id: "uuid",
 	    title: "Título da tarefa 1",
-	    deadline: "2022-10-01T00:00:00.000Z"
+	    deadline: "2022-10-01T00:00:00.000Z",
 	    user_id: "uuid",
 	    done: false,
     },
     {
         id: "uuid",
 	    title: "Título da tarefa 2",
-	    deadline: "2022-10-01T00:00:00.000Z"
+	    deadline: "2022-10-01T00:00:00.000Z",
 	    user_id: "uuid",
 	    done: false,
     }
